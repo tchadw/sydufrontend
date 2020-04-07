@@ -1,0 +1,221 @@
+@import url("https://fonts.googleapis.com/css?family=Cinzel:700|DM+Serif+Display|DM+Serif+Text|Forum|Fredericka+the+Great|Lateef|Noto+Serif+SC|Oranienbaum&display=swap");
+
+@font-face {
+  font-family: "Jersey M54";
+  src: url("/jersey-m54/JerseyM54.png?") format("png"),
+    url("/jersey-m54/JerseyM54.rtf") format("rtf"),
+    url("/jersey-m54/JerseyM54.ttf") format("truetype");
+}
+
+.navigationBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainHeaderFont {
+  position: relative;
+  font-size: 500%;
+  color: #660000;
+  text-shadow: 6px 6px #fff;
+  z-index: -100;
+  font-family: Jersey M54;
+}
+
+.subHeaderFont {
+  color: #660000;
+  text-shadow: 2px 2px #fff;
+  font-family: Jersey M54;
+}
+
+.homeGif {
+  pointer-events: none;
+  padding-bottom: 100px;
+}
+
+#gallery {
+  scroll-snap-type: x mandatory;
+  overflow-x: scroll;
+  display: flex;
+}
+
+#gallery .productCard {
+  scroll-snap-align: center;
+}
+
+header {
+  position: relative;
+  background-color: black;
+  height: 75vh;
+  min-height: 25rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+header .container {
+  position: relative;
+  z-index: 2;
+}
+
+header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+#container {
+  position: relative;
+}
+
+#img2 {
+  position: absolute;
+  left: 30%;
+  right: 25%;
+  top: 80px;
+  pointer-events: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Jersey M54", serif;
+}
+
+.buttonText {
+  font-family: "Squada One", sans-serif;
+}
+
+.itemCardText {
+  font-family: "Squada One", sans-serif;
+  font-size: 120%;
+}
+
+.mainButton {
+  color: #660000;
+  border-color: #660000;
+  border-width: 2px;
+  text-shadow: 2px 2px #fff;
+  font-family: Jersey M54;
+}
+
+/**
+ * border radius
+ */
+
+.btn,
+.jumbotron,
+.nav :hover {
+  border-radius: 0px;
+}
+
+/* carousel */
+
+/* cart badge */
+
+.cart-badge,
+.cart-badge:hover {
+  border-radius: 50%;
+  padding: 2px;
+  font-size: 12px;
+  font-style: italic;
+  background: #000;
+}
+/**
+ * single product page - product name
+ */
+
+.name {
+  background: indigo;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* black shade form 10-1 */
+.black-10 {
+  background: #f2f2f2;
+}
+.black-9 {
+  background: #e6e6e6;
+}
+.black-8 {
+  background: #d9d9d9;
+}
+.black-7 {
+  background: #cccccc;
+}
+.black-6 {
+  background: #bfbfbf;
+}
+.black-5 {
+  background: #b3b3b3;
+}
+
+/**
+ * product image on card
+ */
+
+.product-img {
+  min-height: 100px;
+}
+
+.jumbotron h2 {
+  margin-top: -20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .jumbotron h2 {
+    margin-top: 10px;
+  }
+}
+
+@-webkit-keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@-moz-keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
