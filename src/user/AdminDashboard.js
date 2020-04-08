@@ -11,59 +11,26 @@ const AdminDashboard = () => {
   const adminLinks = () => {
     return (
       <div className="card">
-        <h4
-          className="card-header"
-          style={{
-            textShadow: "2px 2px #fff",
-            fontFamily: "Jersey M54",
-            color: "#660000"
-          }}
-        >
-          Admin Links
-        </h4>
+        <h4 className="card-header">Admin Links</h4>
         <ul className="list-group">
           <li className="list-group-item">
-            <Link
-              className="nav-link"
-              to="/create/category"
-              style={{
-                color: "#660000"
-              }}
-            >
+            <Link className="nav-link" to="/create/category">
               Create Category
             </Link>
           </li>
           <li className="list-group-item">
-            <Link
-              className="nav-link"
-              to="/create/product"
-              style={{
-                color: "#660000"
-              }}
-            >
-              Create Product
+            <Link className="nav-link" to="/create/product">
+              Add New Item
             </Link>
           </li>
           <li className="list-group-item">
-            <Link
-              className="nav-link"
-              to="/admin/orders"
-              style={{
-                color: "#660000"
-              }}
-            >
+            <Link className="nav-link" to="/admin/orders">
               View Orders
             </Link>
           </li>
           <li className="list-group-item">
-            <Link
-              className="nav-link"
-              to="/admin/products"
-              style={{
-                color: "#660000"
-              }}
-            >
-              Manage Products
+            <Link className="nav-link" to="/admin/products">
+              Manage Items
             </Link>
           </li>
         </ul>
@@ -74,21 +41,12 @@ const AdminDashboard = () => {
   const adminInfo = () => {
     return (
       <div className="card mb-5">
-        <h3
-          className="card-header"
-          style={{
-            textShadow: "2px 2px #fff",
-            fontFamily: "Jersey M54",
-            color: "#660000"
-          }}
-        >
-          User Information
-        </h3>
+        <h3 className="card-header">Admin Information</h3>
         <ul className="list-group">
           <li className="list-group-item">{name}</li>
           <li className="list-group-item">{email}</li>
           <li className="list-group-item">
-            {role === 1 ? "Admin" : "Registered User"}
+            {role === 1 ? "Shop Admin" : "Registered User"}
           </li>
         </ul>
       </div>
@@ -98,12 +56,12 @@ const AdminDashboard = () => {
   return (
     <Layout
       title="Dashboard"
-      description={`G'day ${name}!`}
+      description={`Welcome ${name}!`}
       className="container-fluid"
     >
       <div className="row mt-5">
-        <div className="col-3">{adminLinks()}</div>
-        <div className="col-9">{adminInfo()}</div>
+        <div className="col-lg-4">{adminInfo()}</div>
+        <div className="col-lg-8">{adminLinks()}</div>
       </div>
     </Layout>
   );

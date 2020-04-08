@@ -7,7 +7,7 @@ import Checkbox from "./Checkbox";
 import RadioBox from "./RadioBox";
 import { prices } from "./fixedPrices";
 
-import { faMale, faFemale } from "@fortawesome/free-solid-svg-icons";
+import { faMale, faFemale, faTshirt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import syd_chase from "../images/home/syd_chase.jpg";
@@ -75,7 +75,7 @@ const Shop = () => {
     return (
       size > 0 &&
       size >= limit && (
-        <button onClick={loadMore} className="btn btn-warning mb-5">
+        <button onClick={loadMore} className="btn btn-secondary mb-5">
           Load more
         </button>
       )
@@ -141,19 +141,7 @@ const Shop = () => {
     >
       <div className="row" style={{ marginTop: "80px" }}>
         <div className="col-md-4">
-          <h1
-            style={{
-              textAlign: "center",
-              textShadow: "2px 2px #fff",
-              fontFamily: "Jersey M54",
-              color: "#660000"
-            }}
-          >
-            The Locker Room
-            <br />
-            <FontAwesomeIcon icon={faMale} /> {"   "}
-            <FontAwesomeIcon icon={faFemale} />
-          </h1>
+          <h1 className="shopLeftNav">Shop</h1>
           <br />
           {/*outfitBox()*/}
           <button
@@ -161,15 +149,9 @@ const Shop = () => {
             class="btn btn-light col-md buttonText mainButton"
             onClick={() => setCatDropDown(toggleDropDownState(catDropDown))}
           >
-            Type
+            Filter
           </button>
-          <ul
-            style={{
-              color: "#660000",
-              textShadow: "2px 2px #fff",
-              fontFamily: "Jersey M54"
-            }}
-          >
+          <ul>
             {catDropDown ? (
               <Checkbox
                 categories={categories}
@@ -177,28 +159,6 @@ const Shop = () => {
               />
             ) : null}
           </ul>
-
-          <button
-            type="button"
-            class="btn btn-light col-md buttonText mainButton"
-            onClick={() => setPriceDropDown(toggleDropDownState(priceDropDown))}
-          >
-            Price Range
-          </button>
-          <div
-            style={{
-              color: "#660000",
-              textShadow: "2px 2px #fff",
-              fontFamily: "Jersey M54"
-            }}
-          >
-            {priceDropDown ? (
-              <RadioBox
-                prices={prices}
-                handleFilters={filters => handleFilters(filters, "price")}
-              />
-            ) : null}
-          </div>
         </div>
 
         <div className="col-md">

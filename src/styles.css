@@ -1,11 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Cinzel:700|DM+Serif+Display|DM+Serif+Text|Forum|Fredericka+the+Great|Lateef|Noto+Serif+SC|Oranienbaum&display=swap");
-
-@font-face {
-  font-family: "Jersey M54";
-  src: url("/jersey-m54/JerseyM54.png?") format("png"),
-    url("/jersey-m54/JerseyM54.rtf") format("rtf"),
-    url("/jersey-m54/JerseyM54.ttf") format("truetype");
-}
+@import url("https://fonts.googleapis.com/css2?family=Graduate&display=swap");
 
 .navigationBar {
   display: flex;
@@ -15,17 +8,17 @@
 
 .mainHeaderFont {
   position: relative;
-  font-size: 500%;
-  color: #660000;
-  text-shadow: 6px 6px #fff;
+  font-size: 360%;
+  color: #000000;
+  text-shadow: 1px 1px #fff;
   z-index: -100;
-  font-family: Jersey M54;
+  font-family: "Graduate", cursive;
 }
 
 .subHeaderFont {
-  color: #660000;
+  color: #000000;
   text-shadow: 2px 2px #fff;
-  font-family: Jersey M54;
+  font-family: "Graduate", cursive;
 }
 
 .homeGif {
@@ -84,25 +77,37 @@ h1,
 h2,
 h3,
 h4,
-h5 {
-  font-family: "Jersey M54", serif;
+h5,
+label {
+  font-family: "Graduate", cursive;
 }
 
 .buttonText {
-  font-family: "Squada One", sans-serif;
+  font-family: "Graduate", cursive;
 }
 
 .itemCardText {
-  font-family: "Squada One", sans-serif;
+  font-family: "Graduate", cursive;
   font-size: 120%;
 }
 
 .mainButton {
-  color: #660000;
-  border-color: #660000;
-  border-width: 2px;
-  text-shadow: 2px 2px #fff;
-  font-family: Jersey M54;
+  font-family: "Graduate", cursive;
+}
+
+.shopLeftNav {
+  font-family: "Graduate", cursive;
+  text-align: center;
+}
+
+.signUp {
+  font-family: "Graduate", cursive;
+  text-align: center;
+}
+
+.signIn {
+  font-family: "Graduate", cursive;
+  text-align: center;
 }
 
 /**

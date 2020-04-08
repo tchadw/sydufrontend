@@ -57,16 +57,7 @@ const Signin = () => {
           value={password}
         />
       </div>
-      <button
-        onClick={clickSubmit}
-        className="btn"
-        style={{
-          backgroundColor: "#dfbf9f",
-          color: "#660000",
-          textShadow: "2px 2px #fff",
-          fontFamily: "Jersey M54"
-        }}
-      >
+      <button onClick={clickSubmit} className="mainButton">
         Submit
       </button>
     </form>
@@ -108,16 +99,7 @@ const Signin = () => {
       className="container col-md-8 offset-md-2"
     >
       <div style={{ marginTop: "80px" }}>
-        <h1
-          style={{
-            textAlign: "center",
-            textShadow: "2px 2px #fff",
-            fontFamily: "Jersey M54",
-            color: "#660000"
-          }}
-        >
-          Student Login
-        </h1>
+        <h1 className="signIn">Student Login</h1>
         <div
           style={{
             textAlign: "center",

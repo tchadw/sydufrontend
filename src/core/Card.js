@@ -100,9 +100,9 @@ const Card = ({
       showRemoveProductButton && (
         <button
           onClick={() => removeItem(product._id)}
-          className="btn btn-outline-danger mt-2 mb-2"
+          className="btn btn-danger mt-2 mb-2"
         >
-          Remove Product
+          Remove Item
         </button>
       )
     );
@@ -170,7 +170,7 @@ const Card = ({
 
         {showAddToCart(showAddToCartButton)}
         <br />
-        {showTryButton(showTryOnButton)}
+        {/*showTryButton(showTryOnButton)*/}
         {showRemoveButton(showRemoveProductButton)}
 
         {showCartUpdateOptions(cartUpdate)}

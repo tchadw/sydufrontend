@@ -54,17 +54,7 @@ const Checkout = ({ products }) => {
       <div>{showDropIn()}</div>
     ) : (
       <Link to="/signin">
-        <button
-          className="btn "
-          style={{
-            backgroundColor: "#dfbf9f",
-            color: "#660000",
-            textShadow: "2px 2px #fff",
-            fontFamily: "Jersey M54"
-          }}
-        >
-          Sign in to checkout
-        </button>
+        <button className="btn buttonText">Sign in to checkout</button>
       </Link>
     );
   };

@@ -17,10 +17,10 @@ const Cart = () => {
       <div>
         <h2
           style={{
-            color: "#004080"
+            color: "#000"
           }}
         >
-          Your cart has {`${items.length}`} items
+          Your cart has {`${items.length}`} item(s)
         </h2>
         <hr />
         {items.map((product, i) => (
@@ -39,9 +39,17 @@ const Cart = () => {
   const noItemsMessage = () => (
     <h2>
       Your cart is empty. <br />{" "}
-      <Link to="/shop" style={{ color: "#660000" }}>
+      <Link to="/shop" style={{ color: "gray" }}>
         Continue shopping
       </Link>
+      <br />
+      <iframe
+        src="https://giphy.com/embed/2shENaEdN6RdwTGIH6"
+        width="250"
+        frameBorder="0"
+        class="giphy-embed"
+        allowFullScreen
+      />
     </h2>
   );
 
@@ -52,21 +60,16 @@ const Cart = () => {
       className="container-fluid"
     >
       <div className="row mt-5">
-        <div className="col-6">
+        <div className="col-lg">
           {items.length > 0 ? showItems(items) : noItemsMessage()}
         </div>
+      </div>
 
-        <div className="col-6">
-          <h2 className="mb-4" style={{ color: "#660000" }}>
+      <div className="row mt-5">
+        <div className="col-lg">
+          <h2 className="mb-4" style={{ color: "gray" }}>
             Your cart summary
           </h2>
-          <iframe
-            src="https://giphy.com/embed/2shENaEdN6RdwTGIH6"
-            width="250"
-            frameBorder="0"
-            class="giphy-embed"
-            allowFullScreen
-          />
           <hr />
           <Checkout products={items} />
         </div>

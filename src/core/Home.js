@@ -8,20 +8,13 @@ import syd_5 from "../images/home/syd_5.jpg";
 import flag from "../images/home/flag.png";
 import liberty_1 from "../images/home/liberty_1.png";
 import syd_header_widest from "../images/home/syd_header_widest.jpg";
-import default_profile from "../images/home/default_profile.jpg";
-import demo_1 from "../vid/demo_1.mp4";
 
 const Home = () => {
   useEffect(() => {}, []);
 
   return (
-    <Layout title="Home Page" description="Syd University Ecommerce App" fluid>
-      <div
-        id="carouselExampleSlidesOnly"
-        class="carousel slide"
-        data-ride="carousel"
-        style={{ paddingTop: "80px" }}
-      >
+    <Layout title="Home Page" description="Syd University Home" fluid>
+      <div style={{ paddingTop: "80px" }}>
         <div class="carousel-inner text-center">
           <div class="carousel-item active">
             <img
@@ -47,11 +40,11 @@ const Home = () => {
         }}
       >
         <div class="col-sm">
-          <h5 className="subHeaderFont">Blog</h5>
+          <h3 className="subHeaderFont">Blog</h3>
           <br />
           <iframe
             src="https://giphy.com/embed/l4FGr7tMjH3ajuwy4"
-            width="250"
+            width="100"
             frameBorder="0"
             class="giphy-embed"
             allowFullScreen
@@ -59,11 +52,11 @@ const Home = () => {
           ></iframe>
         </div>
         <div class="col-sm">
-          <h5 className="subHeaderFont">Shop</h5>
+          <h3 className="subHeaderFont">Shop</h3>
           <br />
           <iframe
             src="https://giphy.com/embed/l4pTgIqbwsxZTITuM"
-            width="250"
+            width="150"
             frameBorder="0"
             class="giphy-embed"
             allowFullScreen
@@ -71,11 +64,11 @@ const Home = () => {
           ></iframe>
         </div>
         <div class="col-sm">
-          <h5 className="subHeaderFont">Photography</h5>
+          <h3 className="subHeaderFont">Photography</h3>
           <br />
           <iframe
             src="https://giphy.com/embed/l4FGo3znN36Arx0o8"
-            width="250"
+            width="150"
             frameBorder="0"
             class="giphy-embed"
             allowFullScreen
@@ -97,7 +90,7 @@ const Home = () => {
               style={{ maxWidth: "30px" }}
               fluid
             />{" "}
-            | Sweatshop Free{" "}
+            Sweatshop Free{" "}
             <img
               src={liberty_1}
               alt="Lady of Liberty"
@@ -121,42 +114,48 @@ const Home = () => {
           </p>
         </div>
       </div>
-
-      <div
-        class="row"
-        style={{
-          textAlign: "center",
-          paddingBottom: "50px",
-          paddingTop: "50px"
-        }}
-      >
-        <div class="col-lg-6">
-          <img
-            src={syd_3}
-            alt="Female with Green Syd Jacket"
-            style={{ maxWidth: "500px", paddingBottom: "80px" }}
-            fluid
-          />
-          <img
-            src={syd_5}
-            alt="Female with Green Syd Jacket"
-            style={{ maxWidth: "500px", paddingBottom: "80px" }}
-            fluid
-          />
-        </div>
-        <div class="col-lg-6">
-          <img
-            src={syd_1}
-            alt="Male with Long Sleeve Shirt"
-            style={{ maxWidth: "500px", paddingBottom: "80px" }}
-            fluid
-          />
-          <img
-            src={syd_2}
-            alt="Male with Long Sleeve Shirt"
-            style={{ maxWidth: "500px", paddingBottom: "80px" }}
-            fluid
-          />
+      <div class="container">
+        <div
+          class="row"
+          style={{
+            textAlign: "center",
+            paddingBottom: "50px",
+            paddingTop: "50px"
+          }}
+        >
+          <div class="col-lg">
+            <img
+              src={syd_3}
+              alt="Female with Green Syd Jacket"
+              style={{ maxWidth: "100%", paddingBottom: "80px" }}
+              fluid
+            />
+          </div>
+          <div class="col-lg">
+            <img
+              src=""
+              src={syd_5}
+              alt="Female with Green Syd Jacket"
+              style={{ maxWidth: "100%", paddingBottom: "80px" }}
+              fluid
+            />
+          </div>
+          <div class="col-lg">
+            <img
+              src={syd_2}
+              alt="Male with Long Sleeve Shirt"
+              style={{ maxWidth: "100%", paddingBottom: "80px" }}
+              fluid
+            />
+          </div>
+          <div class="col-lg">
+            <img
+              src={syd_1}
+              alt="Male with Long Sleeve Shirt"
+              style={{ maxWidth: "100%", paddingBottom: "80px" }}
+              fluid
+            />
+          </div>
         </div>
       </div>
     </Layout>
