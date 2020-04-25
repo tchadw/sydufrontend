@@ -12,18 +12,22 @@
   color: #000000;
   text-shadow: 1px 1px #fff;
   z-index: -100;
-  font-family: "Graduate", cursive;
+  font-family: "Graduate", sans-serif;
 }
 
 .subHeaderFont {
   color: #000000;
   text-shadow: 2px 2px #fff;
-  font-family: "Graduate", cursive;
+  font-family: "Graduate", sans-serif;
 }
 
 .homeGif {
   pointer-events: none;
   padding-bottom: 100px;
+}
+
+.otherGifs {
+  pointer-events: none;
 }
 
 #gallery {
@@ -79,34 +83,34 @@ h3,
 h4,
 h5,
 label {
-  font-family: "Graduate", cursive;
+  font-family: "Graduate", sans-serif;
 }
 
 .buttonText {
-  font-family: "Graduate", cursive;
+  font-family: "Graduate", sans-serif;
 }
 
 .itemCardText {
-  font-family: "Graduate", cursive;
+  font-family: "Graduate", sans-serif;
   font-size: 120%;
 }
 
 .mainButton {
-  font-family: "Graduate", cursive;
+  font-family: "Graduate", sans-serif;
 }
 
 .shopLeftNav {
-  font-family: "Graduate", cursive;
+  font-family: "Graduate", sans-serif;
   text-align: center;
 }
 
 .signUp {
-  font-family: "Graduate", cursive;
+  font-family: "Graduate", sans-serif;
   text-align: center;
 }
 
 .signIn {
-  font-family: "Graduate", cursive;
+  font-family: "Graduate", sans-serif;
   text-align: center;
 }
 
@@ -172,6 +176,21 @@ label {
 
 .jumbotron h2 {
   margin-top: -20px;
+}
+
+.singleItemBox {
+  border: 1px solid rgba(0, 0, 0, 0.144);
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+}
+
+.singleOrderBox {
+  border: 1px solid rgba(0, 0, 0, 0.144);
+  padding: 2em;
+  margin-bottom: 2em;
 }
 
 @media only screen and (max-width: 600px) {

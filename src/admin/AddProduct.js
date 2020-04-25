@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../core/Layout";
 import { isAuthenticated } from "../auth";
-import { Link } from "react-router-dom";
 import { createProduct, getCategories } from "./apiAdmin";
 
 const AddProduct = () => {
@@ -18,7 +17,7 @@ const AddProduct = () => {
     error: "",
     createdProduct: "",
     redirectToProfile: false,
-    formData: ""
+    formData: "",
   });
 
   const { user, token } = isAuthenticated();
@@ -34,19 +33,19 @@ const AddProduct = () => {
     error,
     createdProduct,
     redirectToProfile,
-    formData
+    formData,
   } = values;
 
   // load categories and set form data
   const init = () => {
-    getCategories().then(data => {
+    getCategories().then((data) => {
       if (data.error) {
         setValues({ ...values, error: data.error });
       } else {
         setValues({
           ...values,
           categories: data,
-          formData: new FormData()
+          formData: new FormData(),
         });
       }
     });
@@ -56,17 +55,17 @@ const AddProduct = () => {
     init();
   }, []);
 
-  const handleChange = name => event => {
+  const handleChange = (name) => (event) => {
     const value = name === "photo" ? event.target.files[0] : event.target.value;
     formData.set(name, value);
     setValues({ ...values, [name]: value });
   };
 
-  const clickSubmit = event => {
+  const clickSubmit = (event) => {
     event.preventDefault();
     setValues({ ...values, error: "", loading: true });
 
-    createProduct(user._id, token, formData).then(data => {
+    createProduct(user._id, token, formData).then((data) => {
       if (data.error) {
         setValues({ ...values, error: data.error });
       } else {
@@ -78,7 +77,7 @@ const AddProduct = () => {
           price: "",
           quantity: "",
           loading: false,
-          createdProduct: data.name
+          createdProduct: data.name,
         });
       }
     });

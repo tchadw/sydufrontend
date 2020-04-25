@@ -12,7 +12,7 @@ const Orders = () => {
   const { user, token } = isAuthenticated();
 
   const loadOrders = () => {
-    listOrders(user._id, token).then(data => {
+    listOrders(user._id, token).then((data) => {
       if (data.error) {
         console.log(data.error);
       } else {
@@ -22,7 +22,7 @@ const Orders = () => {
   };
 
   const loadStatusValues = () => {
-    getStatusValues(user._id, token).then(data => {
+    getStatusValues(user._id, token).then((data) => {
       if (data.error) {
         console.log(data.error);
       } else {
@@ -38,11 +38,9 @@ const Orders = () => {
 
   const showOrdersLength = () => {
     if (orders.length > 0) {
-      return (
-        <h1 className="text-danger display-2">Total orders: {orders.length}</h1>
-      );
+      return <h4 className="text-danger">Total orders: {orders.length}</h4>;
     } else {
-      return <h1 className="text-danger">No orders</h1>;
+      return <h4 className="text-danger">No orders</h4>;
     }
   };
 
@@ -56,7 +54,7 @@ const Orders = () => {
   );
 
   const handleStatusChange = (e, orderId) => {
-    updateOrderStatus(user._id, token, orderId, e.target.value).then(data => {
+    updateOrderStatus(user._id, token, orderId, e.target.value).then((data) => {
       if (data.error) {
         console.log("Status update failed");
       } else {
@@ -65,12 +63,12 @@ const Orders = () => {
     });
   };
 
-  const showStatus = o => (
+  const showStatus = (o) => (
     <div className="form-group">
-      <h3 className="mark mb-4">Status: {o.status}</h3>
+      <h4 className="mark mb-4">Status: {o.status}</h4>
       <select
         className="form-control"
-        onChange={e => handleStatusChange(e, o._id)}
+        onChange={(e) => handleStatusChange(e, o._id)}
       >
         <option>Update Status</option>
         {statusValues.map((status, index) => (
@@ -94,14 +92,10 @@ const Orders = () => {
 
           {orders.map((o, oIndex) => {
             return (
-              <div
-                className="mt-5"
-                key={oIndex}
-                style={{ borderBottom: "5px solid indigo" }}
-              >
-                <h2 className="mb-5">
-                  <span className="bg-primary">Order ID: {o._id}</span>
-                </h2>
+              <div className="mt-5 singleOrderBox" key={oIndex}>
+                <h4 className="mb-5">
+                  <span>Order ID: {o._id}</span>
+                </h4>
 
                 <ul className="list-group mb-2">
                   <li className="list-group-item">{showStatus(o)}</li>
@@ -118,19 +112,12 @@ const Orders = () => {
                   </li>
                 </ul>
 
-                <h3 className="mt-4 mb-4 font-italic">
+                <h4 className="mt-4 mb-4">
                   Total products in the order: {o.products.length}
-                </h3>
+                </h4>
 
                 {o.products.map((p, pIndex) => (
-                  <div
-                    className="mb-4"
-                    key={pIndex}
-                    style={{
-                      padding: "20px",
-                      border: "1px solid indigo"
-                    }}
-                  >
+                  <div className="mb-4" key={pIndex}>
                     {showInput("Product name", p.name)}
                     {showInput("Product price", p.price)}
                     {showInput("Product total", p.count)}

@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import {
-  getProducts,
   getBraintreeClientToken,
   processPayment,
-  createOrder
+  createOrder,
 } from "./apiCore";
 import { emptyCart } from "./cartHelpers";
-import Card from "./Card";
 import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
 import "braintree-web";
@@ -19,14 +17,19 @@ const Checkout = ({ products }) => {
     clientToken: null,
     error: "",
     instance: {},
-    address: ""
+    address: "",
+    aptNumber: "",
+    city: "",
+    state: "",
+    country: "",
+    zipCode: "",
   });
 
   const userId = isAuthenticated() && isAuthenticated().user._id;
   const token = isAuthenticated() && isAuthenticated().token;
 
   const getToken = (userId, token) => {
-    getBraintreeClientToken(userId, token).then(data => {
+    getBraintreeClientToken(userId, token).then((data) => {
       if (data.error) {
         setData({ ...data, error: data.error });
       } else {
@@ -39,8 +42,28 @@ const Checkout = ({ products }) => {
     getToken(userId, token);
   }, []);
 
-  const handleAddress = event => {
+  const handleAddress = (event) => {
     setData({ ...data, address: event.target.value });
+  };
+
+  const handleAptNumber = (event) => {
+    setData({ ...data, aptNumber: event.target.value });
+  };
+
+  const handleCity = (event) => {
+    setData({ ...data, city: event.target.value });
+  };
+
+  const handleState = (event) => {
+    setData({ ...data, state: event.target.value });
+  };
+
+  const handleCountry = (event) => {
+    setData({ ...data, country: event.target.value });
+  };
+
+  const handleZipCode = (event) => {
+    setData({ ...data, zipCode: event.target.value });
   };
 
   const getTotal = () => {
@@ -59,7 +82,18 @@ const Checkout = ({ products }) => {
     );
   };
 
-  let deliveryAddress = data.address;
+  let deliveryAddress =
+    data.address +
+    " " +
+    data.aptNumber +
+    " " +
+    data.city +
+    ", " +
+    data.state +
+    " " +
+    data.zipCode +
+    " " +
+    data.country;
 
   const buy = () => {
     setData({ loading: true });
@@ -68,7 +102,7 @@ const Checkout = ({ products }) => {
     let nonce;
     let getNonce = data.instance
       .requestPaymentMethod()
-      .then(data => {
+      .then((data) => {
         // console.log(data);
         nonce = data.nonce;
         // once you have nonce (card type, card number) send nonce as 'paymentMethodNonce'
@@ -80,11 +114,11 @@ const Checkout = ({ products }) => {
         // );
         const paymentData = {
           paymentMethodNonce: nonce,
-          amount: getTotal(products)
+          amount: getTotal(products),
         };
 
         processPayment(userId, token, paymentData)
-          .then(response => {
+          .then((response) => {
             console.log(response);
             // empty cart
             // create order
@@ -93,46 +127,102 @@ const Checkout = ({ products }) => {
               products: products,
               transaction_id: response.transaction.id,
               amount: response.transaction.amount,
-              address: deliveryAddress
+              address: deliveryAddress,
             };
 
             createOrder(userId, token, createOrderData)
-              .then(response => {
+              .then((response) => {
                 emptyCart(() => {
                   console.log("payment success and empty cart");
                   setData({
                     loading: false,
-                    success: true
+                    success: true,
                   });
                 });
               })
-              .catch(error => {
+              .catch((error) => {
                 console.log(error);
                 setData({ loading: false });
               });
           })
-          .catch(error => {
+          .catch((error) => {
             console.log(error);
             setData({ loading: false });
           });
       })
-      .catch(error => {
+      .catch((error) => {
         // console.log("dropin error: ", error);
         setData({ ...data, error: error.message });
       });
   };
 
   const showDropIn = () => (
-    <div onBlur={() => setData({ ...data, error: "" })}>
+    <div className="mb-5" onBlur={() => setData({ ...data, error: "" })}>
       {data.clientToken !== null && products.length > 0 ? (
         <div>
           <div className="gorm-group mb-3">
-            <label className="text-muted">Delivery address:</label>
-            <textarea
+            <label className="text-muted">Street Address:</label>
+            <input
+              type="text"
               onChange={handleAddress}
               className="form-control"
               value={data.address}
-              placeholder="Type your delivery address here..."
+              placeholder="123 Main St"
+            />
+          </div>
+
+          <div className="gorm-group mb-3">
+            <label className="text-muted">Apt/Unit Number:</label>
+            <input
+              type="text"
+              onChange={handleAptNumber}
+              className="form-control"
+              value={data.aptNumber}
+              placeholder="Optional"
+            />
+          </div>
+
+          <div className="gorm-group mb-3">
+            <label className="text-muted">City:</label>
+            <input
+              type="text"
+              onChange={handleCity}
+              className="form-control"
+              value={data.city}
+              placeholder="City"
+            />
+          </div>
+
+          <div className="gorm-group mb-3">
+            <label className="text-muted">State:</label>
+            <input
+              type="text"
+              onChange={handleState}
+              className="form-control"
+              value={data.state}
+              placeholder="State"
+            />
+          </div>
+
+          <div className="gorm-group mb-3">
+            <label className="text-muted">Country:</label>
+            <input
+              type="text"
+              onChange={handleCountry}
+              className="form-control"
+              value={data.country}
+              placeholder="Country"
+            />
+          </div>
+
+          <div className="gorm-group mb-3">
+            <label className="text-muted">Zip Code:</label>
+            <input
+              type="text"
+              onChange={handleZipCode}
+              className="form-control"
+              value={data.zipCode}
+              placeholder="Zip Code"
             />
           </div>
 
@@ -140,10 +230,10 @@ const Checkout = ({ products }) => {
             options={{
               authorization: data.clientToken,
               paypal: {
-                flow: "vault"
-              }
+                flow: "vault",
+              },
             }}
-            onInstance={instance => (data.instance = instance)}
+            onInstance={(instance) => (data.instance = instance)}
           />
           <button onClick={buy} className="btn btn-success btn-block">
             Pay
@@ -153,7 +243,7 @@ const Checkout = ({ products }) => {
     </div>
   );
 
-  const showError = error => (
+  const showError = (error) => (
     <div
       className="alert alert-danger"
       style={{ display: error ? "" : "none" }}
@@ -162,7 +252,7 @@ const Checkout = ({ products }) => {
     </div>
   );
 
-  const showSuccess = success => (
+  const showSuccess = (success) => (
     <div
       className="alert alert-info"
       style={{ display: success ? "" : "none" }}
@@ -171,7 +261,7 @@ const Checkout = ({ products }) => {
     </div>
   );
 
-  const showLoading = loading =>
+  const showLoading = (loading) =>
     loading && <h2 className="text-danger">Loading...</h2>;
 
   return (

@@ -9,27 +9,27 @@ const Signin = () => {
     password: "",
     error: "",
     loading: false,
-    redirectToReferrer: false
+    redirectToReferrer: false,
   });
 
   const { email, password, loading, error, redirectToReferrer } = values;
   const { user } = isAuthenticated();
 
-  const handleChange = name => event => {
+  const handleChange = (name) => (event) => {
     setValues({ ...values, error: false, [name]: event.target.value });
   };
 
-  const clickSubmit = event => {
+  const clickSubmit = (event) => {
     event.preventDefault();
     setValues({ ...values, error: false, loading: true });
-    signin({ email, password }).then(data => {
+    signin({ email, password }).then((data) => {
       if (data.error) {
         setValues({ ...values, error: data.error, loading: false });
       } else {
         authenticate(data, () => {
           setValues({
             ...values,
-            redirectToReferrer: true
+            redirectToReferrer: true,
           });
         });
       }
@@ -98,17 +98,18 @@ const Signin = () => {
       description="Signin to Node React E-commerce App"
       className="container col-md-8 offset-md-2"
     >
-      <div style={{ marginTop: "80px" }}>
+      <div style={{ marginTop: "80px", marginBottom: "40px" }}>
         <h1 className="signIn">Student Login</h1>
         <div
           style={{
             textAlign: "center",
             marginTop: "50px",
-            marginBottom: "50px"
+            marginBottom: "50px",
           }}
         >
           <iframe
             src="https://giphy.com/embed/xThtayhFCUiob1hFG8"
+            title="laptopSignInGif"
             width="250"
             frameBorder="0"
             class="giphy-embed"

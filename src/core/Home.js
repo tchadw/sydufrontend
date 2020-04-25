@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Layout from "./Layout";
 
 import syd_1 from "../images/home/syd_1.jpg";
@@ -20,7 +20,7 @@ const Home = () => {
             <img
               src={syd_header_widest}
               class="d-block w-100"
-              alt="Syd University Background Image"
+              alt="Syd University Background"
               fluid
             />
             <div class="carousel-caption d-flex h-100 align-items-center justify-content-center">
@@ -36,7 +36,7 @@ const Home = () => {
         class="row"
         style={{
           textAlign: "center",
-          paddingTop: "100px"
+          paddingTop: "100px",
         }}
       >
         <div class="col-sm">
@@ -44,6 +44,7 @@ const Home = () => {
           <br />
           <iframe
             src="https://giphy.com/embed/l4FGr7tMjH3ajuwy4"
+            title="computer"
             width="100"
             frameBorder="0"
             class="giphy-embed"
@@ -56,6 +57,7 @@ const Home = () => {
           <br />
           <iframe
             src="https://giphy.com/embed/l4pTgIqbwsxZTITuM"
+            title="dollar"
             width="150"
             frameBorder="0"
             class="giphy-embed"
@@ -64,10 +66,11 @@ const Home = () => {
           ></iframe>
         </div>
         <div class="col-sm">
-          <h3 className="subHeaderFont">Photography</h3>
+          <h3 className="subHeaderFont">Yearbook</h3>
           <br />
           <iframe
             src="https://giphy.com/embed/l4FGo3znN36Arx0o8"
+            title="sdCard"
             width="150"
             frameBorder="0"
             class="giphy-embed"
@@ -120,7 +123,7 @@ const Home = () => {
           style={{
             textAlign: "center",
             paddingBottom: "50px",
-            paddingTop: "50px"
+            paddingTop: "50px",
           }}
         >
           <div class="col-lg">
@@ -133,7 +136,6 @@ const Home = () => {
           </div>
           <div class="col-lg">
             <img
-              src=""
               src={syd_5}
               alt="Female with Green Syd Jacket"
               style={{ maxWidth: "100%", paddingBottom: "80px" }}

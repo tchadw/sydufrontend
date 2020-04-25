@@ -12,12 +12,12 @@ const Cart = () => {
     setItems(getCart());
   }, [items]);
 
-  const showItems = items => {
+  const showItems = (items) => {
     return (
       <div>
         <h2
           style={{
-            color: "#000"
+            color: "#000",
           }}
         >
           Your cart has {`${items.length}`} item(s)
@@ -45,9 +45,11 @@ const Cart = () => {
       <br />
       <iframe
         src="https://giphy.com/embed/2shENaEdN6RdwTGIH6"
+        title="cart"
         width="250"
         frameBorder="0"
         class="giphy-embed"
+        className="otherGifs"
         allowFullScreen
       />
     </h2>
@@ -65,7 +67,7 @@ const Cart = () => {
         </div>
       </div>
 
-      <div className="row mt-5">
+      <div className="row mt-5 mb-5">
         <div className="col-lg">
           <h2 className="mb-4" style={{ color: "gray" }}>
             Your cart summary

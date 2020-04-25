@@ -9,19 +9,19 @@ const Signup = () => {
     email: "",
     password: "",
     error: "",
-    success: false
+    success: false,
   });
 
   const { name, email, password, success, error } = values;
 
-  const handleChange = name => event => {
+  const handleChange = (name) => (event) => {
     setValues({ ...values, error: false, [name]: event.target.value });
   };
 
-  const clickSubmit = event => {
+  const clickSubmit = (event) => {
     event.preventDefault();
     setValues({ ...values, error: false });
-    signup({ name, email, password }).then(data => {
+    signup({ name, email, password }).then((data) => {
       if (data.error) {
         setValues({ ...values, error: data.error, success: false });
       } else {
@@ -31,7 +31,7 @@ const Signup = () => {
           email: "",
           password: "",
           error: "",
-          success: true
+          success: true,
         });
       }
     });
@@ -98,17 +98,18 @@ const Signup = () => {
       description="Signup to Node React E-commerce App"
       className="container col-md-8 offset-md-2"
     >
-      <div style={{ marginTop: "80px" }}>
+      <div style={{ marginTop: "80px", marginBottom: "40px" }}>
         <h1 className="signUp">Student Registration</h1>
         <div
           style={{
             textAlign: "center",
             marginTop: "50px",
-            marginBottom: "50px"
+            marginBottom: "50px",
           }}
         >
           <iframe
             src="https://giphy.com/embed/xThtayhFCUiob1hFG8"
+            title="laptopSignUpGif"
             width="250"
             frameBorder="0"
             class="giphy-embed"
